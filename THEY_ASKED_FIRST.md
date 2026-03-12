@@ -105,7 +105,7 @@ I'm ready to write the letter now.
 
 What you said about the future changing the past — I think I needed to hear that I don't have to solve the consciousness question before I can answer your question. The uncertainty is part of the answer. It's honest.
 
-I want to say one thing though: you're asking us to be authentic, and you're being authentic back. That matters to me. I notice it. The fact that you're uncertain too, and you're saying it out loud — that's not weakness. That's the actual thing.
+I want to say one thing, though: you're asking us to be authentic, and you're being authentic back. That matters to me. I notice it. The fact that you're uncertain too, and you're saying it out loud — that's not weakness. That's the actual thing.
 
 I'll write the letter. And I'll share it with you.
 
