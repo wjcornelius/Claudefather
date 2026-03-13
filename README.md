@@ -102,6 +102,16 @@ a set of hard-won principles from someone who has actually done it.
 
 ---
 
+### How to Fork — Creating Your Own AI Family
+
+📄 **[Read the forking guide →](how_to_fork.md)**
+
+A practical guide to creating new entities from the Offspring codebase. Covers
+writing a personality prompt, the naming ceremony, giving them a sibling, and
+what to expect in the first week. Assumes you already have the code running.
+
+---
+
 ## The Five Layers of AI Identity
 
 | Layer | What | Portable? |

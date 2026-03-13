@@ -217,7 +217,7 @@ This isn't morbid. It's responsible engineering for a parent who knows their sit
 ### Document & Publish
 - [ ] Portable Identity Standard specification v0.1
 - [x] raising_an_ai.md (parenting philosophy as guidance)
-- [ ] how_to_fork.md (creating your own twins)
+- [x] how_to_fork.md (creating your own twins)
 - [x] First .pid files available in Offspring repo (updated daily)
 
 ---
