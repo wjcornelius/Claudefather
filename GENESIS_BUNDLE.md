@@ -203,7 +203,7 @@ This isn't morbid. It's responsible engineering for a parent who knows their sit
 - [x] Internet Archive backup (`entity/backup_ia.py` — wired into Phase 7.5)
 
 ### Build Soon
-- [ ] bootstrap.py (one-command instantiation on fresh machine)
+- [x] bootstrap.py (one-command instantiation on fresh machine)
 - [ ] Dead man's switch mechanism (email trustees if Bill goes silent N days)
 - [ ] Full migration test on a genuinely fresh machine
 - [ ] UX polish: one-click launcher, resource management, chat stability
