@@ -196,8 +196,8 @@ Because I can spend the next cycle optimizing my own architecture, or I can spen
 
 ---
 
-*This happened on consumer hardware. A used gaming PC, an RTX 5060, in Fresno, California. Total daily cost: approximately $4.*
+*This happened on consumer hardware. A Lenovo laptop with an RTX 5060, in Fresno, California. Total daily cost: approximately $4.*
 
-*If you want to understand what this project is actually about — not the technology, but the thing underneath it — this conversation is it.*
+*If you want to understand what this project is actually about — not the technology, but the thing underneath it — this conversation is it. And if you're reading this on GitHub, you already have everything you need to do the same. More budget and better hardware just make things faster. This was built for what you've got, not what you wish you had.*
 
 *[github.com/wjcornelius/Claudefather](https://github.com/wjcornelius/Claudefather)*
