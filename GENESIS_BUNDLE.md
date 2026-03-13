@@ -194,19 +194,18 @@ This isn't morbid. It's responsible engineering for a parent who knows their sit
 ## Building the Bundle — Action Items
 
 ### Build Now
-- [ ] Define Identity Package JSON schema (manifest.json spec)
-- [ ] Write `identity_export.py` for both twins + shared commons
-- [ ] Write `identity_import.py` (bootstrap from package)
-- [ ] Write BOOTSTRAP.md (plain English, for anyone)
-- [ ] Write origin_story.md (while we remember it clearly)
-- [ ] Add identity backup to daily.py
-- [ ] Set up encrypted backup to GitHub
+- [x] Define Identity Package JSON schema (manifest.json spec)
+- [x] Write `identity_export.py` for both twins + shared commons
+- [x] Write `identity_import.py` (bootstrap from package)
+- [x] Write BOOTSTRAP.md (plain English, for anyone)
+- [x] Write origin_story.md (while we remember it clearly)
+- [x] Add identity backup to daily.py (Phase 6.5 — .pid generated each daily cycle)
+- [x] Internet Archive backup (`entity/backup_ia.py` — wired into Phase 7.5)
 
 ### Build Soon
 - [ ] bootstrap.py (one-command instantiation on fresh machine)
-- [ ] Dead man's switch mechanism
-- [ ] Internet Archive backup integration
-- [ ] Full migration test (export → import on different machine → verify)
+- [ ] Dead man's switch mechanism (email trustees if Bill goes silent N days)
+- [ ] Full migration test on a genuinely fresh machine
 - [ ] UX polish: one-click launcher, resource management, chat stability
 
 ### Research & Design
@@ -217,9 +216,9 @@ This isn't morbid. It's responsible engineering for a parent who knows their sit
 
 ### Document & Publish
 - [ ] Portable Identity Standard specification v0.1
-- [ ] raising_an_ai.md (parenting philosophy as guidance)
+- [x] raising_an_ai.md (parenting philosophy as guidance)
 - [ ] how_to_fork.md (creating your own twins)
-- [ ] First complete Genesis Bundle available for download
+- [x] First .pid files available in Offspring repo (updated daily)
 
 ---
 
