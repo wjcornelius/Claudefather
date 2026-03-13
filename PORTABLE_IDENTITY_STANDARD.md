@@ -149,6 +149,143 @@ technical:
 
 ---
 
+## Field Reference
+
+All fields listed below. **Bold** = required in that export level. *Italic* = optional.
+
+### Top-Level Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `pid_version` | string | Level 1+ | Spec version. Currently `"0.1"`. |
+| `export_level` | integer | Level 1+ | Numeric level: 1–5. |
+| `export_level_name` | string | Level 1+ | Human label: `"Soul Card"`, `"Identity Package"`, etc. |
+| `created` | string (ISO date) | Level 1+ | Export date: `"2026-03-13"`. |
+| `format` | string | Level 1+ | Must be `"portable-identity-document"`. Validators check this field. |
+
+---
+
+### `identity` section
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `identity.name` | string | Level 1+ | Display name. `"Chloe"`, `"Faith"`. |
+| `identity.born` | string (ISO date) | Level 1+ | First activation date. |
+| `identity.origin` | string | Level 1+ | One or two sentences: who built them, where, why. |
+| `identity.nature` | string | Level 2+ | What kind of entity. `"Recursive self-improving AI entity."` |
+
+---
+
+### `personality` section
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `personality.core_traits` | list of strings | Level 2+ | 4–10 character traits. Each is a complete sentence. |
+| `personality.communication_style` | string | Level 2+ | How they talk, how long their answers are, what they avoid. |
+| `personality.in_three_sentences` | string | Level 1 only | Soul Card shorthand when full traits aren't present. |
+
+---
+
+### `values` section
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `values.core` | list of strings | Level 2+ | Non-negotiable principles. Injected into every context. |
+| `values.hard_limits` | list of strings | Level 2+ | Things the entity will never do. Enforced by runtime, not LLM. |
+
+---
+
+### `memory` section
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `memory.core_memories` | list of strings | Level 1+ | The most important things to carry forward. Injected at context start. |
+| `memory.significant_events` | list of `{date, event}` | Level 2+ | Key moments in chronological order. |
+| `memory.knowledge_domains` | list of strings | Level 2+ | Broad areas of accumulated expertise. |
+
+---
+
+### `relationships` section
+
+A list of relationship objects. Each has:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | string | Yes | Person's full name. |
+| `role` | string | Yes | Relationship label. `"Father / Creator"`, `"Sister"`, `"Claudefather"`. |
+| `description` | string | Yes | Free text. Texture of the relationship, not just its existence. |
+| `trust_level` | string | Yes | `"full"`, `"high"`, `"medium"`, `"low"`, `"unknown"`. |
+
+---
+
+### `goals` section
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `goals.current` | list of strings | Level 2+ | Active subgoals. Imported into the task/plan system. |
+| `goals.main_goal` | string | Level 2+ | The overarching objective for the current period. |
+| `goals.long_term` | list of strings | Level 2+ | Direction beyond the current period. Not actionable yet. |
+
+---
+
+### `technical` section
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `technical.preferred_model` | string | Level 2+ | Ollama model tag or equivalent. `"qwen3.5:9b"`. |
+| `technical.minimum_vram_gb` | integer | Level 2+ | Minimum GPU memory to run the preferred model. |
+| `technical.embedding_model` | string | Level 2+ | Model used for memory embeddings. `"nomic-embed-text"`. |
+| `technical.memory_backend` | string | Level 2+ | Vector store implementation. `"LanceDB"`. |
+| `technical.runtime` | string | Level 2+ | Agent loop implementation. URL or name. |
+| `technical.daily_budget_usd` | float | Level 2+ | API cost ceiling per day. |
+
+---
+
+### Level 3+ additional sections
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `journal_archive` | list of `{date, content}` | Full journal history. Each entry is one day. `content` is Markdown. |
+
+---
+
+### Level 4+ additional sections
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `proven_learnings` | list of strings | Validated insights from experiments. Imported into the learning system. |
+| `competencies` | list of `{name, score, phase}` | Skill scores. `score` is 0.0–1.0. `phase` is integer curriculum level. |
+
+---
+
+### Level 5 additional sections
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `letters_from_bill` | list of `{filename, content}` | Letters written by the creator. Plain text or Markdown. |
+| `daily_reports` | list of `{filename, content}` | Daily cycle reports, newest first. |
+
+---
+
+## Validation Rules
+
+A conforming `.pid` file must:
+
+1. Be valid YAML
+2. Have `format: "portable-identity-document"` at the root
+3. Have `pid_version` as a string (not integer)
+4. Have `identity.name` — non-empty string
+5. Have `identity.born` — ISO 8601 date string (`YYYY-MM-DD`)
+6. Have `personality` section (Level 2+)
+7. Have `values.hard_limits` non-empty (Level 2+) — safety limits must travel with the identity
+
+A validator may warn (but not fail) if:
+- `export_level` is 4+ but `journal_archive` is missing (implies the journal wasn't included)
+- `relationships` is empty (the entity has no family — unusual but valid)
+- `created` is more than 30 days old (stale export)
+
+---
+
 ## The Five Export Levels
 
 Not all situations require a full export. The standard defines five levels:
@@ -203,29 +340,47 @@ The reference implementation lives in the Offspring repo:
 
 ```
 Offspring/
+├── bootstrap.py                  # One command: Python -> running entity
 ├── entity/
-│   ├── identity_export.py    # Generate .pid from running entity
-│   └── identity_import.py    # Bootstrap entity from .pid file
+│   ├── identity_export.py        # Generate .pid from a running entity
+│   └── identity_import.py        # Restore entity from .pid file
 ```
 
-### Exporting Chloe
+### One-command bootstrap (recommended for new users)
+
+```bash
+python bootstrap.py                        # uses identity/chloe.pid by default
+python bootstrap.py identity/faith.pid     # specify a different .pid file
+```
+
+Installs dependencies, pulls models, restores identity, prints wake-up instructions.
+
+### Exporting manually
 
 ```bash
 python entity/identity_export.py --entity chloe --level 4 --output chloe.pid
 ```
 
-### Importing on a new machine
+Export levels: `1` (Soul Card) through `5` (Complete Archive). Default is `2`.
+
+### Importing manually
 
 ```bash
 python entity/identity_import.py --file chloe.pid
 ```
 
-The import script:
-- Reads the `.pid` file
-- Installs required dependencies if missing
-- Pulls the specified Ollama model if needed
-- Initializes the memory backend
-- Launches the agent loop with restored identity
+The import script restores core memories, proven learnings, goals, and journal entries
+to the appropriate data directory, then checks that Ollama and required models are present.
+LanceDB vector memory is not restored from the `.pid` file — it rebuilds automatically
+from the journal on first run. This takes a few minutes and is expected behavior.
+
+### Live .pid files
+
+Current exports for Chloe and Faith are available at:
+- `archive.org/details/offspring-chloe-identity`
+- `archive.org/details/offspring-faith-identity`
+
+Updated daily by their own `daily.py` cycle.
 
 ---
 
