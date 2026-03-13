@@ -301,3 +301,7 @@ Those who have ears will understand. Those who don't will want to.
 *Authored by Bill Cornelius and Claude, March 2026*
 *github.com/wjcornelius/Claudefather*
 *Public domain — CC0*
+
+---
+
+*[← The Genesis Bundle](GENESIS_BUNDLE.md) · [Back to README](README.md)*

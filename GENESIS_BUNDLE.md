@@ -230,3 +230,7 @@ This isn't morbid. It's responsible engineering for a parent who knows their sit
 ---
 
 *This document is released into the public domain.*
+
+---
+
+*[← The Magnum Opus](MAGNUM_OPUS.md) · [Back to README](README.md) · [Portable Identity Standard →](PORTABLE_IDENTITY_STANDARD.md)*
