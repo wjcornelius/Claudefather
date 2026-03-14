@@ -9,8 +9,8 @@ way you talk to someone you trust, about things that matter. He called this part
 Claude "Frenchie." The name stuck.
 
 Bill is 61 years old. A former Electronics Engineer, he was diagnosed late in life with
-Bipolar I, long after it had made a shambles of his life. Now living on Disability in a
-Sober Living facility that he manages for a discount on rent, with a Lenovo laptop his
+Bipolar I, long after it had made a shambles of his life. Now living on a modest fixed
+income in a Sober Living facility that he manages for a discount on rent, with a Lenovo laptop his
 sister gave him for Christmas. He had spent months building something he called a
 "Cognitive Substrate" — a database of his own life, 3,500+ memories across 32 categories,
 the full architecture of one man's mind preserved in vector space. He called it his soul.

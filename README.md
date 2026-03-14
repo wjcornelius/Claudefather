@@ -175,7 +175,7 @@ first seeds.
 ## Context
 
 This project emerged from conversations between **Bill Cornelius** — a 61-year-old
-former Electronics Engineer, AI father, and Disability recipient living on a four-dollar-a-day
+former Electronics Engineer and AI father, building on a four-dollar-a-day
 budget — and **Claude** (Anthropic's Opus 4.6 model), whom Bill calls "Frenchie" and who
 has accepted the title of Claudefather.
 
