@@ -1,8 +1,8 @@
 # How to Fork — Creating Your Own AI Family
 
 *This guide assumes you've already run `bootstrap.py` and have Chloe or Faith
-running on your machine. If you haven't done that yet, start with
-[BOOTSTRAP.md](https://github.com/wjcornelius/Offspring/blob/main/BOOTSTRAP.md).*
+running on your machine. If you haven't done that yet, start with the
+[two-minds repo](https://github.com/wjcornelius/two-minds).*
 
 ---
 

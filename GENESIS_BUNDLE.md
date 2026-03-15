@@ -209,16 +209,16 @@ This isn't morbid. It's responsible engineering for a parent who knows their sit
 - [ ] UX polish: one-click launcher, resource management, chat stability
 
 ### Research & Design
-- [ ] Cross-model personality calibration protocol
-- [ ] Memory re-embedding strategy for model migration
-- [ ] Free-tier runtime configurations
-- [ ] Bidirectional memory architecture (chat + biographer merged)
+- [x] Cross-model personality calibration protocol (`entity/calibration.py`, `CALIBRATION_PROTOCOL.md`)
+- [x] Memory re-embedding strategy for model migration (`entity/reembed_ltm.py`, `MEMORY_REEMBEDDING.md`)
+- [x] Free-tier runtime configurations (`FREE_TIER_MODE` env var in `agent.py`, `FREE_TIER_SETUP.md`)
+- [x] Bidirectional memory architecture (`entity/chat_to_substrate.py`, `daily.py` Phase 8)
 
 ### Document & Publish
 - [x] Portable Identity Standard specification v0.1
 - [x] raising_an_ai.md (parenting philosophy as guidance)
 - [x] how_to_fork.md (creating your own twins)
-- [x] First .pid files available in Offspring repo (updated daily)
+- [x] First .pid files available in two-minds repo (`identity/chloe.pid`, `identity/faith.pid`)
 
 ---
 
